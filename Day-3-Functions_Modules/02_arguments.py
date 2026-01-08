@@ -1,6 +1,6 @@
 # Default arguments
 def deploy(env="dev"):
-    print(f"Deploying to {env} environment"):
+    print(f"Deploying to {env} environment")
 
 deploy()          # o/p: Deploying to dev environment
 deploy("prod")    # o/p: Deploying to prod environment
