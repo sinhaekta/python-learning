@@ -1,0 +1,12 @@
+[
+    {
+        "env": "prod",
+        "version": "1.0.1",
+        "region": "ap-south-1"
+    },
+    {
+        "env": "stg",
+        "version": "1.0.2",
+        "region": "ap-south-1"
+    }
+]
