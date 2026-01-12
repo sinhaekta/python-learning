@@ -5,4 +5,3 @@
 -> Dynamically typed
 
 -> Everything is an object
-

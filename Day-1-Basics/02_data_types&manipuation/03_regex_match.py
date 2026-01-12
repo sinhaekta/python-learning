@@ -1,3 +1,5 @@
+# The match expression is evaluated once.
+
 import re
 
 text = "The rain in Spain stays mainly in the plain."
