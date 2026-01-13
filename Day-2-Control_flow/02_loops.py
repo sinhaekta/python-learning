@@ -22,3 +22,8 @@ for service in services:
         print("Nginx service found, skipping...")
         continue  # Skip the rest of the loop for this iteration
     print(f"Starting service: {service}")
+
+# for with enumerate()
+function = [1, 2, 3, 4, 50]
+for i,f in enumerate(function):
+    print(i,f)
