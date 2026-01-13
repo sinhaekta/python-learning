@@ -3,7 +3,7 @@ try:
     content = f.read()
 except FileNotFoundError:
     print("File not found")
-else:
+else: # This block will execute if no exception occurs
     print("File read successfully")
 finally: # This block will always execute regardless of exception
     print("Execution completed")
