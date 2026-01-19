@@ -36,4 +36,3 @@ rev = []
 for i in range(len(list)-1, -1, -1): # range(start, stop, step)
     rev.append(list[i])
 print(rev)
-
