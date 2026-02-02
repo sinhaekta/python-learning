@@ -16,3 +16,26 @@ def subsets(nums):
     return result
 
 print("Subsets:", subsets([1, 2, 3]))
+#number_of_subsets = 2 ** n 
+
+#   generate binary strings of length n
+def generate_binary(n):
+    result = []
+
+    def backtrack(path):
+        if len(path) == n:
+            result.append("".join(path))
+            return
+
+        path.append('0')
+        backtrack(path)
+        path.pop()
+
+        path.append('1')
+        backtrack(path)
+        path.pop()
+
+    backtrack([])
+    return result
+
+print("Binary strings:", generate_binary(3))  # ['000', '001', '010', '011', '100', '101', '110', '111']
