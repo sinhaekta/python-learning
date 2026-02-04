@@ -39,3 +39,28 @@ def generate_binary(n):
     return result
 
 print("Binary strings:", generate_binary(3))  # ['000', '001', '010', '011', '100', '101', '110', '111']
+
+# permutation
+def permute(nums):
+    result = []
+    used = [False] * len(nums)
+
+    def backtrack(path):
+        if len(path) == len(nums):
+            result.append(path[:])
+            return
+
+        for i in range(len(nums)):
+            if used[i]:
+                continue
+
+            used[i] = True
+            path.append(nums[i])
+
+            backtrack(path)
+
+            path.pop()
+            used[i] = False
+
+    backtrack([])
+    return result
