@@ -49,3 +49,65 @@ class Queue:
 
     def size(self):
         return len(self.queue)
+
+# Circular queue
+class CircularQueue:
+    def __init__(self, capacity):
+        self.queue = [None] * capacity
+        self.capacity = capacity
+        self.front = 0
+        self.rear = 0
+        self.size = 0
+
+    def enqueue(self, x):
+        if self.size == self.capacity:
+            return "Queue is full"
+        self.queue[self.rear] = x
+        self.rear = (self.rear + 1) % self.capacity
+        self.size += 1
+
+    def dequeue(self):
+        if self.size == 0:
+            return "Queue is empty"
+        item = self.queue[self.front]
+        self.queue[self.front] = None  # Clear the slot
+        self.front = (self.front + 1) % self.capacity
+        self.size -= 1
+        return item
+
+    def peek(self):
+        return self.queue[self.front] if self.size > 0 else "Queue is empty"
+
+    def get_size(self):
+        return self.size
+
+# Example
+#Level order traversal of a binary tree using queue
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None   
+
+    def level_order_traversal(root):
+        if not root:
+            return []
+        queue = deque([root])
+        result = []
+        while queue:
+            node = queue.popleft()
+            result.append(node.value)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        return result
+
+# Create a binary tree
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(5)
+
+print(TreeNode.level_order_traversal(root))  # Output: [1, 2, 3, 4, 5]  
