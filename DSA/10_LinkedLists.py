@@ -13,7 +13,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def append(self, data):
+    def append(self, data): #insert at end
         new_node = Node(data)
         if not self.head:
             self.head = new_node
@@ -28,3 +28,21 @@ class LinkedList:
         while current_node:
             print(current_node.data)
             current_node = current_node.next
+
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+    
+    def delete_node(self, key):
+        current_node = self.head
+        if current_node and current_node.data == key:
+            self.head = current_node.next
+            return
+        prev = None
+        while current_node and current_node.data != key:
+            prev = current_node
+            current_node = current_node.next
+        if not current_node:
+            return
+        prev.next = current_node.next
